@@ -9,5 +9,26 @@
  */
 angular.module('app01App')
   .controller('MainCtrl', function ($scope) {
-    $scope.content = "Hello world!";
+    $scope.contacts = [
+      { firstName: 'Frank', surname: 'Muscles', email: 'frank@muscles.com' },
+      { firstName: 'Eddy', surname: 'Valentino', email: 'eddy@valfam.co.uk' }
+    ];
+    
+    $scope.newContact = {};
+    
+    $scope.saveContact = function()
+    {
+      $scope.contacts.push(angular.copy($scope.newContact));
+      $scope.newContact = {};
+    };
+    
+    $scope.deleteContact = function(contact)
+    {
+      var index = $scope.contacts.indexOf(contact);
+      if (index !== -1)
+      {
+        $scope.contacts.splice(index, 1);
+      }
+    };
+    
   });

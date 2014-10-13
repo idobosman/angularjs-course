@@ -1,1 +1,38 @@
-<p>{{ content }}</p>
+<label for="inputFirstName">First name:</label>
+<input type="text" ng-model="newContact.firstName" id="inputFirstName" class="form-control">
+
+<label for="inputSurname">Surname:</label>
+<input type="text" ng-model="newContact.surname" id="inputSurname" class="form-control">
+  
+<label for="inputEmail">E-mail address:</label>
+<input type="text" ng-model="newContact.email" id="inputEmail" class="form-control">
+  
+<button type="submit" class="btn btn-primary" ng-click="saveContact()">Add</button>
+
+<hr />
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>E-mail address</th>
+    <th></th>
+  </tr>
+  <tr ng-repeat="contact in contacts">
+    <td>
+      <span ng-hide="contact.inEditMode">{{contact.firstName}} {{contact.surname}}</span>
+      <div ng-show="contact.inEditMode">
+        <input type="text" ng-model="contact.firstName" class="form-control" />
+        <input type="text" ng-model="contact.surname" class="form-control" />
+      </div>
+    </td>
+    <td>
+      <span ng-hide="contact.inEditMode">{{contact.email}}</span>
+      <input type="email" ng-model="contact.email" class="form-control" ng-show="contact.inEditMode" />
+    </td>
+    <td>
+      <button class="btn" ng-hide="contact.inEditMode" ng-click="contact.inEditMode = true">Edit</button>
+      <button class="btn btn-danger" ng-hide="contact.inEditMode" ng-click="deleteContact(contact)">Delete</button>
+      <button class="btn btn-primary" ng-show="contact.inEditMode" ng-click="contact.inEditMode = false">Save</button>
+    </td>
+  </tr>
+</table>

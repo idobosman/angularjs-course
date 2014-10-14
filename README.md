@@ -1,6 +1,6 @@
 # AngularJS course
-
 ## Install hints
+### General
 - Install Git.
 - Install NodeJS.
 - Change git:// url's to https:// for retrieving npm-packages.
@@ -26,4 +26,15 @@ npm install -g karma-cli
 ```bash
 npm install
 bower install
+```
+### Unit Testing
+- Run the following commands:
+```bash
+npm install karma-jasmine --save-dev
+npm install grunt-phantomjs-launcher --save-dev
+npm install grunt-karma --save-dev
+```
+- After installing and configuring the packages for Unit Testing, run the tests with the following command:
+```bash
+grunt test
 ```

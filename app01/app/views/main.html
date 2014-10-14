@@ -27,9 +27,11 @@
     </td>
     <td>
       <span ng-hide="contact.inEditMode">{{ contact.email }}</span>
-      <input type="email" ng-model="contact.email" class="form-control" ng-show="contact.inEditMode" />
+      <div ng-show="contact.inEditMode">
+        <input type="email" ng-model="contact.email" class="form-control" />
+      </div>
     </td>
-    <td>
+    <td class="align-right">
       <button class="btn" ng-hide="contact.inEditMode" ng-click="contact.inEditMode = true">Edit</button>
       <button class="btn btn-danger" ng-hide="contact.inEditMode" ng-click="deleteContact(contact)">Delete</button>
       <button class="btn btn-primary" ng-show="contact.inEditMode" ng-click="contact.inEditMode = false">Save</button>

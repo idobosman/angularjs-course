@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name app01App
+ * @name datepickerApp
  * @description
- * # app01App
+ * # datepickerApp
  *
  * Main module of the application.
  */
 angular
-  .module('app01App', [
+  .module('datepickerApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

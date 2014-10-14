@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name app01App.controller:MainCtrl
+ * @name datepickerApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the app01App
+ * Controller of the datepickerApp
  */
-angular.module('app01App')
+angular.module('datepickerApp')
   .controller('MainCtrl', function ($scope) {
     $scope.contacts = [
       { firstName: 'Frank', surname: 'Muscles', email: 'frank@muscles.com' },

@@ -77,3 +77,27 @@ body {
     border-bottom: 0;
   }
 }
+
+/* Custom styles */
+
+td.max-width{
+  max-width: 150px;
+  text-align: right;
+}
+
+input.max-width {
+  width: 125px;
+}
+
+input.max-width.pull-left {
+  margin-right: 10px;
+}
+
+/* Form validation */
+input.ng-pristine {
+  background-color: #eff9ff;
+}
+input.ng-dirty.ng-invalid {
+  background-color: #fff5f5;
+  border-color: #ffbdbd;
+}

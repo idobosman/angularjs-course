@@ -19,14 +19,14 @@
   </tr>
   <tr ng-repeat="contact in contacts">
     <td>
-      <span ng-hide="contact.inEditMode">{{contact.firstName}} {{contact.surname}}</span>
+      <span ng-hide="contact.inEditMode">{{ contact | contactName }}</span>
       <div ng-show="contact.inEditMode">
         <input type="text" ng-model="contact.firstName" class="form-control" />
         <input type="text" ng-model="contact.surname" class="form-control" />
       </div>
     </td>
     <td>
-      <span ng-hide="contact.inEditMode">{{contact.email}}</span>
+      <span ng-hide="contact.inEditMode">{{ contact.email }}</span>
       <input type="email" ng-model="contact.email" class="form-control" ng-show="contact.inEditMode" />
     </td>
     <td>

@@ -8,10 +8,10 @@
  * Controller of the datepickerApp
  */
 angular.module('datepickerApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function($scope){
     $scope.contacts = [
-      { firstName: 'Frank', surname: 'Muscles', email: 'frank@muscles.com' },
-      { firstName: 'Eddy', surname: 'Valentino', email: 'eddy@valfam.co.uk' }
+      { firstName: 'Frank', lastName: 'Muscles', email: 'frank@muscles.com' },
+      { firstName: 'Eddy', lastName: 'Valentino', email: 'eddy@valfam.co.uk' }
     ];
     
     $scope.newContact = {};

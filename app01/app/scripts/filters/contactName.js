@@ -1,6 +1,10 @@
-angular.module('datepickerApp.filters').filter('contactName', function(){
-    return function (input)
-    {
-        return input.firstName + " " + input.lastName;
-    }
-});
+angular.module('datepickerApp.filters')
+    .filter('contactName', function(){
+        return function (input)
+        {
+            var firstName = (input.firstName === undefined) ? "John" : input.firstName;
+            var lastName = (input.lastName === undefined) ? "Doe" : input.LastName;
+            
+            return firstName + " " + lastName;
+        }
+    });

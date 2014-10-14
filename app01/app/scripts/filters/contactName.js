@@ -3,7 +3,7 @@ angular.module('datepickerApp.filters')
         return function (input)
         {
             var firstName = (input.firstName === undefined) ? "John" : input.firstName;
-            var lastName = (input.lastName === undefined) ? "Doe" : input.LastName;
+            var lastName = (input.lastName === undefined) ? "Doe" : input.lastName;
             
             return firstName + " " + lastName;
         }

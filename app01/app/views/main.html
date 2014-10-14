@@ -1,13 +1,13 @@
 <label for="inputFirstName">First name:</label>
 <input type="text" ng-model="newContact.firstName" id="inputFirstName" class="form-control">
 
-<label for="inputSurname">Surname:</label>
-<input type="text" ng-model="newContact.surname" id="inputSurname" class="form-control">
+<label for="inputLastName">Lastname:</label>
+<input type="text" ng-model="newContact.lastName" id="inputLastname" class="form-control">
   
 <label for="inputEmail">E-mail address:</label>
 <input type="text" ng-model="newContact.email" id="inputEmail" class="form-control">
   
-<button type="submit" class="btn btn-primary" ng-click="saveContact()">Add</button>
+<button type="submit" class="btn btn-primary" ng-click="addContact()">Add</button>
 
 <hr />
 
@@ -19,22 +19,22 @@
   </tr>
   <tr ng-repeat="contact in contacts">
     <td>
-      <span ng-hide="contact.inEditMode">{{ contact | contactName }}</span>
-      <div ng-show="contact.inEditMode">
-        <input type="text" ng-model="contact.firstName" class="form-control" />
-        <input type="text" ng-model="contact.surname" class="form-control" />
+      <span ng-hide="contact === currentlyEditingContact">{{ contact | contactName }}</span>
+      <div ng-show="contact === currentlyEditingContact">
+        <input type="text" ng-model="editContactCopy.firstName" class="form-control" />
+        <input type="text" ng-model="editContactCopy.lastName" class="form-control" />
       </div>
     </td>
     <td>
-      <span ng-hide="contact.inEditMode">{{ contact.email }}</span>
-      <div ng-show="contact.inEditMode">
-        <input type="email" ng-model="contact.email" class="form-control" />
+      <span ng-hide="contact === currentlyEditingContact">{{ contact.email }}</span>
+      <div ng-show="contact === currentlyEditingContact">
+        <input type="email" ng-model="editContactCopy.email" class="form-control" />
       </div>
     </td>
     <td>
-      <button class="btn" ng-hide="contact.inEditMode" ng-click="contact.inEditMode = true">Edit</button>
-      <button class="btn btn-danger" ng-hide="contact.inEditMode" ng-click="deleteContact(contact)">Delete</button>
-      <button class="btn btn-primary" ng-show="contact.inEditMode" ng-click="contact.inEditMode = false">Save</button>
+      <button class="btn" ng-hide="contact === currentlyEditingContact" ng-click="startEditingContact(contact)">Edit</button>
+      <button class="btn btn-danger" ng-hide="contact === currentlyEditingContact" ng-click="deleteContact(contact)">Delete</button>
+      <button class="btn btn-primary" ng-show="contact === currentlyEditingContact" ng-click="saveEditedContact(editContactCopy)">Save</button>
     </td>
   </tr>
 </table>

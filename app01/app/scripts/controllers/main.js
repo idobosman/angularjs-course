@@ -21,7 +21,7 @@ angular.module('datepickerApp')
     $scope.addContact = function()
     {
       $scope.contacts.push(angular.copy($scope.newContact));
-      $scope.newContact = null;
+      $scope.newContact = {};
     };
     
     $scope.startEditingContact = function(contact)

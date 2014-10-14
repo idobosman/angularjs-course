@@ -26,7 +26,7 @@
       </div>
     </td>
     <td>
-      <span ng-hide="contact === currentlyEditingContact">{{ contact.email }}</span>
+      <span ng-hide="contact === currentlyEditingContact">{{ contact.email | inputOrUnknown }}</span>
       <div ng-show="contact === currentlyEditingContact">
         <input type="email" ng-model="editContactCopy.email" class="form-control" />
       </div>

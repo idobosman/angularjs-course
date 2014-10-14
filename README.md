@@ -29,7 +29,7 @@ bower install
 - Run the following commands (from the root of the application):
 ```bash
 npm install karma-jasmine --save-dev
-npm install grunt-phantomjs-launcher --save-dev
+npm install karma-phantomjs-launcher --save-dev
 npm install grunt-karma --save-dev
 ```
 - After installing and configuring the packages for Unit Testing, run the tests with the following command:

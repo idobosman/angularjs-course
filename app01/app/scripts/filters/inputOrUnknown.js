@@ -2,6 +2,6 @@ angular.module('datepickerApp.filters')
     .filter('inputOrUnknown', function(){
         return function (input)
         {
-            return (input === undefined) ? "unknown" : input;
+            return (!input) ? "unknown" : input;
         }
     });

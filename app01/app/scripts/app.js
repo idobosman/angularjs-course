@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'datepickerApp.filters'
+    'datepickerApp.filters',
+    'datepickerApp.directives'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -42,4 +43,15 @@ angular
  * Filters module of the application.
  */
 angular
-  .module('datepickerApp.filters', []); 
+  .module('datepickerApp.filters', []);
+  
+/**
+ * @ngdoc overview
+ * @name datepickerApp.directives
+ * @description
+ * # datepickerApp directives
+ *
+ * Directives module of the application.
+ */
+angular
+  .module('datepickerApp.directives', []);

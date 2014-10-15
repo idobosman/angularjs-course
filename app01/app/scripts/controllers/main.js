@@ -8,11 +8,28 @@
  * Controller of the datepickerApp
  */
 angular.module('datepickerApp')
-  .controller('MainCtrl', function($scope){
-    $scope.contacts = [
-      { firstName: 'Frank', lastName: 'Muscles', email: 'frank@muscles.com' },
-      { firstName: 'Eddy', lastName: 'Valentino', email: 'eddy@valfam.co.uk' }
-    ];
+  .controller('MainCtrl', function($scope, $resource){
+    var contactResource = $resource(
+                            'http://127.0.0.1:9688/contacts/:contactId',
+                            { contactId: '@contactId' },
+                            { update: { method: 'PUT' } }
+                          );
+    
+    $scope.contacts = contactResource.query(
+      function(data){
+        // Retreiving contacts succeeded. Optionally do something.  
+      },
+      function(error)
+      {
+        // Retreiving contacts failed.
+        alert('Something went wrong while retreiving the contacts.');
+      }
+    );
+    
+    // Do something when retreiving the contacts went wrong.
+    // $scope.contacts.$promise.catch(function(error){
+    //   console.log("Something went wrong: " + error);
+    // });
     
     $scope.newContact = {};
     $scope.currentlyEditingContact = {};
@@ -20,8 +37,24 @@ angular.module('datepickerApp')
     
     $scope.addContact = function()
     {
-      $scope.contacts.push(angular.copy($scope.newContact));
-      $scope.newContact = {};
+      contactResource.save(
+        $scope.newContact,
+        function(data){
+          $scope.contacts.push(data);          
+          
+          var contactName = $scope.newContact.firstName + ' ' + $scope.newContact.lastName;
+          alert('Successfully added the new contact (' + contactName + ').');
+          
+          $scope.newContact = {};
+          
+          // Set the form fields pristine. This prevents the form to show error styles on the form fields due to dirty and invalid field values.
+          $scope.newContactForm.$setPristine();
+        },
+        function(error){
+          alert('Adding the new contact (' + $scope.newContact.firstName + ' ' + $scope.newContact.lastName + ') failed due to a server error.');
+        }
+      );
+      
     };
     
     $scope.startEditingContact = function(contact)

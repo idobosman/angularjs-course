@@ -40,6 +40,7 @@ angular.module('datepickerApp')
       contactResource.save(
         $scope.newContact,
         function(data){
+          // Add the new contact that is saved on the server also to the contacts list in memory.
           $scope.contacts.push(data);          
           
           var contactName = $scope.newContact.firstName + ' ' + $scope.newContact.lastName;
@@ -54,7 +55,6 @@ angular.module('datepickerApp')
           alert('Adding the new contact (' + $scope.newContact.firstName + ' ' + $scope.newContact.lastName + ') failed due to a server error.');
         }
       );
-      
     };
     
     $scope.startEditingContact = function(contact)

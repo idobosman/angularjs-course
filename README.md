@@ -37,7 +37,7 @@ npm install grunt-karma --save-dev
 grunt test
 ```
 ### End-To-End Testing
-- Install Java.
+- Install Java (Runtime Environment).
 - Run the following commands (from the root of the application):
 ```bash
 npm install -g protractor

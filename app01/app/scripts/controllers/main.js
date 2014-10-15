@@ -48,6 +48,5 @@ angular.module('datepickerApp')
       {
         $scope.contacts.splice(index, 1);
       }
-    };
-    
+    };    
   });

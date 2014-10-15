@@ -52,3 +52,12 @@ yo protractor
 webdriver-manager start
 protractor protractor.conf.js      or      protractor debug protractor.conf.js
 ```
+### Restify
+- Install restify using the command shown below. This package is required for RESTService.js to act as a server. This server allows the application to make AJAX calls using AngularJS. 
+```bash
+npm install restify
+```
+- Run the server (RESTservice.js in application root folder) using the following command:
+```bash
+node RESTService.js 
+```
